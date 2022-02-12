@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection konami</title>
+  <style>
+
+    body{
+      background-color: aqua;
+      padding: 30px;
+    }
+
+    h1, p {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+      h1{
+        font-size: 76px
+        ;
+      }
+
+      p {
+        font-size: 24px;
+        color: #353a39;
+        cursor: pointer;
+        margin-bottom: 3em;
+      }
+    
+  </style>
+  <!-- <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script> -->
+</head>
+<body>
+  <div id="container">
+    <p>konami code</p>
+    <hi>click here to give the page focus and enter the konami code</hi>
+ </div>
+<script>
+  let keys ={
+    37:"left",
+    38:"up",
+    39:"right",
+    40:"down",
+    65:"a",
+    665:"b",
+  };
+
+  let konamiCode ={"up","up","down","down","left",
+   "right","left","a","b"};
+
+  document.addEventlistener(
+    "keydown",checkCode, false); 
+    let keyCount= 0;
+    let timerID;
+
+    function checkCode[event.keycode];
+    if (keyPressed === konamiCode[keyCount]){
+      keyCount++;
+
+      window.clearTimeout(timerID);
+
+    timerID = window.setTimeout(resetKeyState,1000);
+
+      if (keyPressed === konamiCode.length) {
+        cheatCodeActivated();
+        resetKeyState();
+      }
+    } else {
+      resetKeyState();
+    }
+    
+
+    function cheatCodeActivated() {
+      alert("cheat code activated!");
+    }
+
+    function resetKeyState() {
+      console.log("Resetting state!");
+      keyCount = 0;
+      window.clearTimeout(timerID);
+    }
+</script>
+</body>
+</html>
